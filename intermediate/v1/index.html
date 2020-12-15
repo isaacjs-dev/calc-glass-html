@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Glassmorphism Calculator UI - Intermediate</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <div class="display-area">
+          <div class="display" id="display">0</div>
+          <div class="display-memory" id="displayMemory"></div>
+        </div>
+        <button type="button" onclick="clearMemory()">AC</button>
+        <button type="button" onclick="setOperation('inv')">+/-</button>
+        <button type="button" onclick="setOperation('back')">&#x1F82C;</button>
+        <button type="button" class="op" onclick="setOperation('/')">/</button>
+        <button type="button" onclick="addDigit('7')">7</button>
+        <button type="button" onclick="addDigit('8')">8</button>
+        <button type="button" onclick="addDigit('9')">9</button>
+        <button type="button" class="op" onclick="setOperation('*')">*</button>
+        <button type="button" onclick="addDigit('4')">4</button>
+        <button type="button" onclick="addDigit('5')">5</button>
+        <button type="button" onclick="addDigit('6')">6</button>
+        <button type="button" class="op" onclick="setOperation('-')">-</button>
+        <button type="button" onclick="addDigit('1')">1</button>
+        <button type="button" onclick="addDigit('2')">2</button>
+        <button type="button" onclick="addDigit('3')">3</button>
+        <button type="button" class="op" onclick="setOperation('+')">+</button>
+        <button type="button" class="scol-2" onclick="addDigit('0')">0</button>
+        <button type="button" onclick="addDigit('.')">.</button>
+        <button type="button" class="op" onclick="setOperation('=')">=</button>
+      </div>
+    </div>
+
+    <script src="./assets/js/calc.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="./assets/js/tilt-config.js"></script>
+  </body>
+</html>

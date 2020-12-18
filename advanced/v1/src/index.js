@@ -1,8 +1,18 @@
-require('App');
+ require('style.css');
+ 
+ const filesScripts = [
+    'components/Display/index',
+    'components/Button/index',
+    'components/Calc/index',
+    'App'
+];
+
+
 
 (function () {
-    require('style.css');
-    createApp(App());
+    filesScripts.forEach(srcScript => {
+        require(srcScript);
+    })
 })()
 
 

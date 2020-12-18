@@ -20,12 +20,9 @@ const html = {
 
 const createApp = (element) => {
     html.main.appendChild(element);
-    console.clear()
 }
 
 /* ----------| Função automatiza requisição |-------------------------------- */
-const filesScripts = [];
-
 function require(fileAddres) {
 
     const fileExt = fileAddres.replace(/\.\.\//g, '').replace(/\.\//g, '').split('.')
@@ -37,21 +34,8 @@ function require(fileAddres) {
         fileExt[1] = 'js';
     }
 
-    if (filesScripts.includes(fileFullName)) {
-        return false;
-    }
-
-
     switch (fileExt[1]) {
-        case 'js':
-            filesScripts.splice(0, 0, fileFullName)
-
-            html.scripts.forEach((scriptItem, index) => {
-                if (index > 1) {
-                    html.body.removeChild(scriptItem)
-                }
-            })
-            filesScripts.forEach(srcScript => importJs(srcScript));
+        case 'js':importJs(fileFullName);
             break;
 
         case 'css': importCss(fileFullName);
@@ -68,7 +52,6 @@ function importJs(fileAddres) {
     newScript.src = fileAddres
 
     html.body.appendChild(newScript)
-    html.scripts = Array.from($$('script'));
 }
 
 /* Require Style */

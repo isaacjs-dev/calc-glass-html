@@ -1,15 +1,16 @@
-require('components/Calc/index')
-
-import m from './components/Calc/index'
-
-console.log(m)
-
 function App() {
     const app = el.div({
         class: 'container'
-    })
+    }, Calc());
 
-    app.appendChild();
+    VanillaTilt.init(app, {
+        max: 25,
+        speed: 400,
+        glare: false,
+        "max-glare": 0.2,
+    });
 
     return app;
 };
+
+createApp(App());

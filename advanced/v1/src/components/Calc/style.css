@@ -1,0 +1,104 @@
+.container {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 10;
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .container .calc {
+    width: 300px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 140px repeat(5, 75px);
+  }
+  .container .calc .display-area {
+    grid-column: span 4;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  
+  .container .calc .display-area .display {
+    padding-right: 10px;
+    font-size: 42px;
+    background: transparent;
+    color: #fff;
+  
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .container .calc .display-area .display-memory {
+    overflow: auto;
+  }
+  
+  .container .calc .display-area .display-memory span {
+    display: block;
+    text-align: right;
+    font-size: 16px;
+    line-height: 22px;
+    background: transparent;
+    color: #fff;
+    padding-right: 4px;
+  }
+  
+  .container .calc button {
+    place-items: center;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.5s;
+  }
+  
+  .container .calc button:hover {
+    transition: 0s;
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .container .calc button:active {
+    background: #5EFF14;
+    color: #192f00;
+    font-weight: 500;
+  }
+  
+  .container .calc button.op {
+    transition: 0s;
+    background: rgba(255, 102, 20, 0.2);
+  }
+  
+  .container .calc button.op:hover {
+    transition: 0s;
+    background: rgba(255, 102, 20, 0.5);
+  }
+  
+  .container .calc button.op:active {
+    background: #ff6614;
+    color: #180b00;
+    font-weight: 500;
+  }
+  
+  .scol-2 {
+    grid-column: span 2;
+  }
+  
+  .scol-3 {
+    grid-column: span 3;
+  }
+  

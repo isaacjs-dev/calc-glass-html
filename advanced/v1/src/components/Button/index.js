@@ -6,8 +6,6 @@ const state = {
     current: 0
 };
 
-const calcDisplay = $('#display');
-
 function calcInit() {
     $('#display').innerText = state.displayValue;
 }
@@ -22,46 +20,28 @@ function clearMemory() {
 }
 
 function setOperation(op) {
-    switch (op) {
-        case "inv":
-            if (state.displayValue !== 0) {
-                const currentValues = parseFloat(state.displayValue) * -1
-                state.values[0] = currentValues
-                state.displayValue = currentValues.toString();
-            }
-            break;
-        case "back":
-            state.displayValue = state.displayValue.substr(
-                0,
-                state.displayValue.length - 1
-            );
-            break;
+    if (state.current === 0) {
+        state.oparation = op;
+        state.current = 1;
+        state.clearDisplay = true;
+    } else {
+        const equals = op === "=";
+        const currentOperation = state.oparation;
 
-        default:
-            if (state.current === 0) {
-                state.oparation = op;
-                state.current = 1;
-                state.clearDisplay = true;
-            } else {
-                const equals = op === "=";
-                const currentOperation = state.oparation;
-
-                state.values[0] = eval(`${state.values[0]} 
+        state.values[0] = eval(`${state.values[0]} 
           ${currentOperation} 
           ${state.values[1]}`);
 
-                state.values[1] = 0;
+        state.values[1] = 0;
 
-                state.displayValue = state.values[0];
-                state.oparation = equals ? null : op;
-                state.current = equals ? 0 : 1;
-                state.clearDisplay = !equals;
-            }
+        state.displayValue = state.values[0];
+        state.oparation = equals ? null : op;
+        state.current = equals ? 0 : 1;
+        state.clearDisplay = !equals;
     }
 }
 
 function addDigit(n) {
-    const currentState = state
     if (n === "." && state.displayValue.includes(".") && !state.clearDisplay) {
         return;
     }
